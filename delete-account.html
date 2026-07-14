@@ -28,6 +28,36 @@
             box-shadow:0 0 20px rgba(0,0,0,.08);
         }
 
+        /* Navigation Buttons Styling */
+        .nav-menu {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            background-color: #f4f4f4;
+            color: #1a73e8;
+            border: 1px solid #1a73e8;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #1a73e8;
+            color: white;
+        }
+        
+        .nav-btn.active {
+            background-color: #1a73e8;
+            color: white;
+        }
+
         h1{
             color:#1a73e8;
             margin-bottom:10px;
@@ -44,7 +74,7 @@
             margin-bottom:15px;
         }
 
-        ol{
+        ol, ul{
             margin-left:25px;
             margin-bottom:20px;
         }
@@ -64,6 +94,24 @@
             color:#1a73e8;
             text-decoration:none;
         }
+
+        .updated{
+            color:#666;
+            margin-bottom:30px;
+        }
+
+        @media(max-width:700px){
+            .container{
+                margin:15px;
+                padding:25px;
+            }
+            .nav-menu {
+                flex-direction: column;
+            }
+            .nav-btn {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
@@ -71,73 +119,81 @@
 
 <div class="container">
 
-<h1>Delete Your Account</h1>
+    <!-- Navigation Menu -->
+    <div class="nav-menu">
+        <a href="index.html" class="nav-btn">Privacy Policy</a>
+        <a href="terms-and-conditions.html" class="nav-btn">Terms & Conditions</a>
+        <a href="child-safety.html" class="nav-btn">Child Safety Policy</a>
+        <a href="delete-account.html" class="nav-btn active">Delete Account</a>
+    </div>
 
-<p>
-Last Updated: July 7, 2026
-</p>
+    <h1>Delete Your Account</h1>
 
-<p>
-Premier University Central allows users to permanently delete their account directly from within the application.
-</p>
+    <p class="updated">
+    Last Updated: July 7, 2026
+    </p>
 
-<h2>How to Delete Your Account</h2>
+    <p>
+    Premier University Central allows users to permanently delete their account directly from within the application.
+    </p>
 
-<ol>
-    <li>Open <strong>Premier University Central</strong>.</li>
-    <li>Log in to your account.</li>
-    <li>Go to <strong>Settings</strong>.</li>
-    <li>Select <strong>Delete Account</strong>.</li>
-    <li>Enter your email address and password to re-authenticate your account.</li>
-    <li>Tap <strong>Delete Account</strong> to permanently delete your account.</li>
-</ol>
+    <h2>How to Delete Your Account</h2>
 
-<h2>What Data Is Deleted</h2>
+    <ol>
+        <li>Open <strong>Premier University Central</strong>.</li>
+        <li>Log in to your account.</li>
+        <li>Go to <strong>Settings</strong>.</li>
+        <li>Select <strong>Delete Account</strong>.</li>
+        <li>Enter your email address and password to re-authenticate your account.</li>
+        <li>Tap <strong>Delete Account</strong> to permanently delete your account.</li>
+    </ol>
 
-<p>
-When you delete your account, the following information is permanently deleted where applicable:
-</p>
+    <h2>What Data Is Deleted</h2>
 
-<ul>
-    <li>Your Firebase Authentication account.</li>
-    <li>Your profile information.</li>
-    <li>Your email address.</li>
-    <li>Your username.</li>
-    <li>Your profile picture.</li>
-    <li>Your private messages associated with your account.</li>
-    <li>Your blocked users list.</li>
-    <li>Your notification records.</li>
-</ul>
+    <p>
+    When you delete your account, the following information is permanently deleted where applicable:
+    </p>
 
-<h2>Data That May Be Retained</h2>
+    <ul>
+        <li>Your Firebase Authentication account.</li>
+        <li>Your profile information.</li>
+        <li>Your email address.</li>
+        <li>Your username.</li>
+        <li>Your profile picture.</li>
+        <li>Your private messages associated with your account.</li>
+        <li>Your blocked users list.</li>
+        <li>Your notification records.</li>
+    </ul>
 
-<p>
-To maintain the integrity and safety of the university community, certain information may be retained after account deletion where permitted by applicable law, including:
-</p>
+    <h2>Data That May Be Retained</h2>
 
-<ul>
-    <li>Posts and comments that have been reported for moderation.</li>
-    <li>Information required to comply with legal obligations.</li>
-</ul>
+    <p>
+    To maintain the integrity and safety of the university community, certain information may be retained after account deletion where permitted by applicable law, including:
+    </p>
 
-<p>
-Any retained information is kept only for as long as necessary for moderation, legal, or security purposes.
-</p>
+    <ul>
+        <li>Posts and comments that have been reported for moderation.</li>
+        <li>Information required to comply with legal obligations.</li>
+    </ul>
 
-<h2>Need Help?</h2>
+    <p>
+    Any retained information is kept only for as long as necessary for moderation, legal, or security purposes.
+    </p>
 
-<p>
-If you experience any issues deleting your account, please contact:
-</p>
+    <h2>Need Help?</h2>
 
-<p>
-<strong>Email:</strong><br>
-<a href="mailto:iktiarnazib@gmail.com">iktiarnazib@gmail.com</a>
-</p>
+    <p>
+    If you experience any issues deleting your account, please contact:
+    </p>
 
-<footer>
-© 2026 Premier University Central. All Rights Reserved.
-</footer>
+    <p>
+    <strong>Email:</strong><br>
+    <a href="mailto:iktiarnazib@gmail.com">iktiarnazib@gmail.com</a>
+    </p>
+
+    <footer>
+    © 2026 Premier University Central. All Rights Reserved.
+    </footer>
 
 </div>
 
