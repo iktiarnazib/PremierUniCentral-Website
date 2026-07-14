@@ -14,8 +14,8 @@
         :root {
             --bg-color: #000000;
             --surface: #0a0a0a;
-            --text-primary: #f5f5f7;
-            --text-secondary: #86868b;
+            --text-primary: #ffffff;
+            --text-secondary: #888890;
             --accent: #2997ff;
             --gradient-1: #007AFF;
             --gradient-2: #8A2BE2;
@@ -41,7 +41,7 @@
         /* Premium Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-color); }
-        ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; border: 2px solid #000; }
         ::-webkit-scrollbar-thumb:hover { background: #444; }
 
         /* --- Animations --- */
@@ -56,9 +56,9 @@
             transform: translateY(0) scale(1);
             filter: blur(0);
         }
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.45s; }
 
         @keyframes textGradient {
             0% { background-position: 0% 50%; }
@@ -68,7 +68,12 @@
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(8px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(6px); opacity: 1; }
         }
 
         /* --- Header --- */
@@ -78,8 +83,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            background: rgba(0, 0, 0, 0.6);
+            padding: 1.2rem 5%;
+            background: rgba(0, 0, 0, 0.4);
             backdrop-filter: saturate(180%) blur(24px);
             -webkit-backdrop-filter: saturate(180%) blur(24px);
             border-bottom: 1px solid var(--border);
@@ -90,23 +95,23 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            letter-spacing: -0.02em;
+            letter-spacing: 0.02em;
         }
         .logo img {
             height: 28px;
             border-radius: 6px;
-            box-shadow: 0 0 15px rgba(255,255,255,0.05);
+            box-shadow: 0 0 15px rgba(255,255,255,0.1);
         }
 
-        nav { display: flex; gap: 3rem; align-items: center; }
+        nav { display: flex; gap: 2.5rem; align-items: center; }
         nav a.link {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             opacity: 0.5;
             transition: opacity 0.3s, text-shadow 0.3s;
             text-transform: uppercase;
@@ -121,11 +126,11 @@
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background-image: 
-                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
-            -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
+                linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at top, black 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at top, black 0%, transparent 70%);
             z-index: -2;
             pointer-events: none;
         }
@@ -138,29 +143,61 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 5% 60px;
+            padding: 140px 5% 60px;
             position: relative;
         }
 
-        /* Ambient Glow */
+        /* Ambient Glow behind text */
         .hero::before {
             content: '';
             position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(0, 122, 255, 0.15) 0%, transparent 60%);
-            top: 50%; left: 50%;
+            width: 1000px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(138, 43, 226, 0.15) 0%, rgba(0, 122, 255, 0.05) 40%, transparent 70%);
+            top: 40%; left: 50%;
             transform: translate(-50%, -50%);
             z-index: -1;
-            filter: blur(60px);
+            filter: blur(80px);
             pointer-events: none;
         }
 
+        /* Hero App Icon (New) */
+        .hero-logo-wrapper {
+            margin-bottom: 2.5rem;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-app-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 24px;
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.8), 
+                0 0 0 1px rgba(255,255,255,0.1) inset, 
+                0 0 80px rgba(41, 151, 255, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Subtle glow under the icon */
+        .hero-logo-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -15px; left: 10%; right: 10%;
+            height: 20px;
+            background: var(--gradient-1);
+            filter: blur(20px);
+            opacity: 0.5;
+            z-index: 1;
+            border-radius: 50%;
+        }
+
         .hero h1 {
-            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-size: clamp(3.5rem, 8vw, 7.5rem);
             font-weight: 800;
             line-height: 1.05;
-            letter-spacing: -0.04em;
+            letter-spacing: -0.05em;
             margin-bottom: 1.5rem;
         }
 
@@ -170,16 +207,18 @@
             color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
-            animation: textGradient 6s ease infinite;
+            animation: textGradient 8s ease infinite;
+            display: block; /* Forces line break like your screenshot */
         }
 
         .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
             color: var(--text-secondary);
             font-weight: 400;
-            max-width: 800px;
-            margin-bottom: 4rem;
+            max-width: 750px;
+            margin: 0 auto 3rem;
             line-height: 1.6;
+            letter-spacing: -0.01em;
         }
 
         .hero p strong {
@@ -187,25 +226,48 @@
             font-weight: 600;
         }
 
+        /* Hero Action Button */
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-primary);
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .hero-btn:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+            border-color: rgba(255,255,255,0.25);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.05);
+        }
+
         /* Scroll Indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
-            width: 24px;
-            height: 40px;
-            border: 1.5px solid rgba(255,255,255,0.3);
+            width: 26px;
+            height: 42px;
+            border: 1.5px solid rgba(255,255,255,0.2);
             border-radius: 20px;
             display: flex;
             justify-content: center;
-            padding-top: 6px;
+            padding-top: 8px;
         }
         .scroll-indicator::before {
             content: '';
             width: 4px;
             height: 6px;
-            background: #fff;
+            background: rgba(255,255,255,0.6);
             border-radius: 2px;
-            animation: float 2s infinite ease-in-out;
+            animation: scrollBounce 2s infinite ease-in-out;
         }
 
         /* --- Feature Sections --- */
@@ -227,11 +289,11 @@
             max-width: 480px;
         }
         .feature-text h3 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 1rem;
+            letter-spacing: 0.25em;
+            margin-bottom: 1.2rem;
             font-weight: 600;
         }
         .feature-text h2 {
@@ -265,11 +327,11 @@
             border-radius: 36px;
             padding: 12px;
             background: rgba(25, 25, 25, 0.6);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.08);
             box-shadow: 
-                0 40px 80px rgba(0,0,0,0.8),
+                0 50px 100px rgba(0,0,0,0.8),
                 0 0 0 1px rgba(255,255,255,0.05) inset,
-                0 0 60px rgba(0, 122, 255, 0.15);
+                0 0 80px rgba(0, 122, 255, 0.1);
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-style: preserve-3d;
         }
@@ -279,7 +341,7 @@
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             border-radius: 36px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 40%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 40%);
             pointer-events: none;
             z-index: 10;
         }
@@ -295,28 +357,50 @@
         /* --- Footer --- */
         footer {
             border-top: 1px solid var(--border);
-            padding: 5rem 5% 3rem;
+            padding: 5rem 5% 4rem;
             background: var(--bg-color);
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            bottom: -50%; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 300px;
+            background: radial-gradient(ellipse, rgba(255,255,255,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
         .footer-grid {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 3.5rem;
             margin-bottom: 4rem;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
         .footer-link {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
         }
         .footer-link:hover { 
             color: var(--text-primary); 
         }
-        .copyright { color: #444; font-size: 0.85rem; }
+        .copyright { 
+            color: #444; 
+            font-size: 0.85rem; 
+            position: relative;
+            z-index: 1;
+        }
 
         /* --- Responsive --- */
         @media (max-width: 1024px) {
@@ -324,7 +408,7 @@
                 flex-direction: column;
                 text-align: center;
                 padding: 120px 5%;
-                gap: 4rem;
+                gap: 5rem;
             }
             .feature-text { max-width: 600px; }
             .device-bezel { max-width: 280px; transform: none !important; }
@@ -334,6 +418,7 @@
             .hero h1 { font-size: 3.2rem; }
             .feature-text h2 { font-size: 2.5rem; }
             .hero p { padding: 0 1rem; }
+            .hero-app-icon { width: 80px; height: 80px; }
         }
     </style>
 </head>
@@ -349,7 +434,7 @@
             Premier Uni Central
         </div>
         <nav>
-            <a href="#overview" class="link">Design</a>
+            <a href="#features" class="link">Design</a>
             <a href="privacy-policy.html" class="link">Privacy</a>
             <a href="terms-and-conditions.html" class="link">Terms</a>
             <a href="child-safety.html" class="link">Safety</a>
@@ -358,19 +443,30 @@
 
     <!-- Hero -->
     <section class="hero" id="overview">
+        <!-- New Hero App Icon -->
+        <div class="hero-logo-wrapper reveal">
+            <img src="Premier Uni Central assets/logo.png" alt="Premier Uni Central Logo" class="hero-app-icon">
+        </div>
+
         <h1 class="reveal delay-1">
-            <span class="gradient-text">Premier Uni Central.</span><br>
+            <span class="gradient-text">Premier Uni Central.</span>
             The ultimate campus network.
         </h1>
+        
         <p class="reveal delay-2">
             <strong>Premier Uni Central is a next-generation social platform built exclusively for Premier University students.</strong> It is designed to help you seamlessly connect with batchmates, stay updated on your academic routine, and deeply engage with your campus community in one unified, highly secure digital ecosystem.
         </p>
+
+        <!-- New Action Button -->
+        <div class="reveal delay-3">
+            <a href="#features" class="hero-btn">Explore the Ecosystem</a>
+        </div>
         
         <div class="scroll-indicator reveal delay-3"></div>
     </section>
 
     <!-- Section 1 -->
-    <section class="feature-section">
+    <section id="features" class="feature-section">
         <div class="feature-text reveal">
             <h3>Secure Communication</h3>
             <h2>Unprecedented Privacy.</h2>
