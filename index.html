@@ -51,7 +51,7 @@
         }
 
         /* Premium Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-color); }
         ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; border: 1px solid #000; }
         ::-webkit-scrollbar-thumb:hover { background: #444; }
@@ -59,8 +59,8 @@
         /* --- Animations --- */
         .reveal {
             opacity: 0;
-            transform: translateY(40px) scale(0.98);
-            filter: blur(12px);
+            transform: translateY(30px) scale(0.98);
+            filter: blur(8px);
             transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
@@ -80,12 +80,12 @@
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-8px); }
         }
         
         @keyframes scrollBounce {
             0%, 100% { transform: translateY(0); opacity: 0.3; }
-            50% { transform: translateY(6px); opacity: 1; }
+            50% { transform: translateY(4px); opacity: 1; }
         }
 
         /* --- Header --- */
@@ -95,7 +95,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
+            padding: 0.7rem 5%;
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: saturate(180%) blur(30px);
             -webkit-backdrop-filter: saturate(180%) blur(30px);
@@ -106,22 +106,22 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.05rem;
+            gap: 8px;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.02em;
         }
         .logo img {
-            height: 28px;
-            border-radius: 6px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.15);
+            height: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.15);
         }
 
-        nav { display: flex; gap: 2.5rem; align-items: center; }
+        nav { display: flex; gap: 1.8rem; align-items: center; }
         nav a.link {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.55rem;
             font-weight: 600;
             letter-spacing: 0.1em;
             opacity: 0.5;
@@ -130,7 +130,7 @@
         }
         nav a.link:hover { 
             opacity: 1; 
-            text-shadow: 0 0 16px rgba(255,255,255,0.5);
+            text-shadow: 0 0 12px rgba(255,255,255,0.5);
         }
 
         /* --- Architectural Grid Background --- */
@@ -140,7 +140,7 @@
             background-image: 
                 linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 80px 80px;
+            background-size: 55px 55px;
             mask-image: radial-gradient(ellipse at top, black 0%, transparent 80%);
             -webkit-mask-image: radial-gradient(ellipse at top, black 0%, transparent 80%);
             z-index: -2;
@@ -155,7 +155,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 160px 5% 60px;
+            padding: 110px 5% 40px;
             position: relative;
         }
 
@@ -163,31 +163,31 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 1200px;
-            height: 800px;
+            width: 800px;
+            height: 550px;
             background: radial-gradient(ellipse, rgba(138, 43, 226, 0.18) 0%, rgba(0, 122, 255, 0.08) 30%, transparent 70%);
             top: 30%; left: 50%;
             transform: translate(-50%, -50%);
             z-index: -1;
-            filter: blur(100px);
+            filter: blur(70px);
             pointer-events: none;
         }
 
         /* Hero App Icon */
         .hero-logo-wrapper {
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             position: relative;
             animation: float 8s ease-in-out infinite;
         }
         
         .hero-app-icon {
-            width: 110px;
-            height: 110px;
-            border-radius: 28px;
+            width: 75px;
+            height: 75px;
+            border-radius: 20px;
             box-shadow: 
-                0 40px 80px rgba(0,0,0,0.9), 
+                0 30px 60px rgba(0,0,0,0.9), 
                 0 0 0 1px rgba(255,255,255,0.15) inset, 
-                0 0 100px rgba(41, 151, 255, 0.25);
+                0 0 70px rgba(41, 151, 255, 0.25);
             position: relative;
             z-index: 2;
         }
@@ -195,21 +195,21 @@
         .hero-logo-wrapper::after {
             content: '';
             position: absolute;
-            bottom: -20px; left: 15%; right: 15%;
-            height: 20px;
+            bottom: -14px; left: 15%; right: 15%;
+            height: 14px;
             background: var(--gradient-1);
-            filter: blur(25px);
+            filter: blur(18px);
             opacity: 0.6;
             z-index: 1;
             border-radius: 50%;
         }
 
         .hero h1 {
-            font-size: clamp(3.5rem, 8vw, 8rem);
+            font-size: clamp(2.5rem, 5.5vw, 5.5rem);
             font-weight: 800;
             line-height: 1.02;
             letter-spacing: -0.04em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .gradient-text {
@@ -223,11 +223,11 @@
         }
 
         .hero p {
-            font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
             color: var(--text-secondary);
             font-weight: 400;
-            max-width: 780px;
-            margin: 0 auto 3.5rem;
+            max-width: 550px;
+            margin: 0 auto 2.5rem;
             line-height: 1.6;
             letter-spacing: -0.01em;
         }
@@ -241,13 +241,13 @@
         .hero-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 16px 36px;
+            gap: 8px;
+            padding: 12px 26px;
             background: #ffffff;
             color: #000000;
             border-radius: 100px;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: -0.01em;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -255,25 +255,25 @@
         }
         .hero-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(255,255,255,0.15), 0 0 20px rgba(255,255,255,0.2);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.15), 0 0 15px rgba(255,255,255,0.2);
         }
 
         /* Scroll Indicator */
         .scroll-indicator {
             position: absolute;
-            bottom: 40px;
-            width: 28px;
-            height: 44px;
-            border: 1.5px solid rgba(255,255,255,0.15);
-            border-radius: 20px;
+            bottom: 25px;
+            width: 20px;
+            height: 32px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 15px;
             display: flex;
             justify-content: center;
-            padding-top: 8px;
+            padding-top: 6px;
         }
         .scroll-indicator::before {
             content: '';
-            width: 4px;
-            height: 8px;
+            width: 3px;
+            height: 6px;
             background: rgba(255,255,255,0.8);
             border-radius: 2px;
             animation: scrollBounce 2s infinite ease-in-out;
@@ -282,12 +282,12 @@
         /* --- Feature Sections --- */
         .feature-section {
             min-height: 100vh;
-            padding: 140px 5%;
+            padding: 95px 5%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12%;
-            max-width: 1600px;
+            gap: 10%;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
@@ -295,26 +295,26 @@
 
         .feature-text {
             flex: 1;
-            max-width: 500px;
+            max-width: 350px;
         }
         .feature-text h3 {
-            font-size: 0.85rem;
+            font-size: 0.6rem;
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.3em;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
             font-weight: 600;
         }
         .feature-text h2 {
-            font-size: clamp(2.5rem, 4vw, 4.2rem);
+            font-size: clamp(1.8rem, 2.8vw, 3rem);
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: -0.04em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--text-primary);
         }
         .feature-text p {
-            font-size: 1.15rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
             line-height: 1.7;
             font-weight: 400;
@@ -331,16 +331,16 @@
 
         .device-bezel {
             width: 100%;
-            max-width: 320px;
+            max-width: 220px;
             position: relative;
-            border-radius: 40px;
-            padding: 14px;
+            border-radius: 28px;
+            padding: 10px;
             background: rgba(15, 15, 15, 0.8);
             box-shadow: 
-                0 60px 120px rgba(0,0,0,1),
+                0 40px 80px rgba(0,0,0,1),
                 inset 0 0 0 1px rgba(255,255,255,0.1),
-                inset 0 0 20px rgba(255,255,255,0.02),
-                0 0 100px rgba(0, 122, 255, 0.08);
+                inset 0 0 15px rgba(255,255,255,0.02),
+                0 0 70px rgba(0, 122, 255, 0.08);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-style: preserve-3d;
         }
@@ -350,7 +350,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 40px;
+            border-radius: 28px;
             background: linear-gradient(125deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.02) 30%, transparent 100%);
             pointer-events: none;
             z-index: 10;
@@ -359,35 +359,35 @@
         .device-bezel img {
             width: 100%;
             height: auto;
-            border-radius: 26px;
+            border-radius: 18px;
             display: block;
             background: #000;
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* --- Magnetic Contact Section (NEW) --- */
+        /* --- Magnetic Contact Section --- */
         .contact-section {
-            padding: 180px 5%;
+            padding: 120px 5%;
             text-align: center;
             position: relative;
             z-index: 10;
         }
         
         .contact-section h2 {
-            font-size: clamp(3rem, 6vw, 5rem);
+            font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 800;
             letter-spacing: -0.04em;
-            margin-bottom: 1rem;
+            margin-bottom: 0.7rem;
         }
         
         .contact-section p {
             color: var(--text-secondary);
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
         }
 
         .email-cta {
-            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-size: clamp(1.2rem, 2.8vw, 2.2rem);
             font-weight: 700;
             color: transparent;
             background: linear-gradient(90deg, #fff, #888);
@@ -402,7 +402,7 @@
         .email-cta::after {
             content: '';
             position: absolute;
-            bottom: -5px; left: 0; right: 0;
+            bottom: -3px; left: 0; right: 0;
             height: 2px;
             background: var(--gradient-1);
             transform: scaleX(0);
@@ -415,7 +415,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             transform: scale(1.05);
-            text-shadow: 0 10px 40px rgba(0, 122, 255, 0.4);
+            text-shadow: 0 8px 30px rgba(0, 122, 255, 0.4);
         }
 
         .email-cta:hover::after {
@@ -426,7 +426,7 @@
         /* --- Footer --- */
         footer {
             border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 5rem 5% 4rem;
+            padding: 3.5rem 5% 2.5rem;
             background: var(--bg-color);
             text-align: center;
             position: relative;
@@ -438,7 +438,7 @@
             position: absolute;
             bottom: -50%; left: 50%;
             transform: translateX(-50%);
-            width: 800px; height: 400px;
+            width: 550px; height: 280px;
             background: radial-gradient(ellipse, rgba(255,255,255,0.03) 0%, transparent 70%);
             pointer-events: none;
         }
@@ -446,8 +446,8 @@
         .footer-grid {
             display: flex;
             justify-content: center;
-            gap: 4rem;
-            margin-bottom: 4rem;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
             flex-wrap: wrap;
             position: relative;
             z-index: 1;
@@ -455,7 +455,7 @@
         .footer-link {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.6rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.15em;
@@ -465,8 +465,8 @@
             color: var(--text-primary); 
         }
         .copyright { 
-            color: #333; 
-            font-size: 0.85rem; 
+            color: #444; 
+            font-size: 0.65rem; 
             position: relative;
             z-index: 1;
         }
@@ -476,19 +476,19 @@
             .feature-section, .feature-section:nth-child(even) {
                 flex-direction: column;
                 text-align: center;
-                padding: 120px 5%;
-                gap: 5rem;
+                padding: 80px 5%;
+                gap: 3.5rem;
             }
-            .feature-text { max-width: 650px; }
-            .device-bezel { max-width: 280px; transform: none !important; }
+            .feature-text { max-width: 450px; }
+            .device-bezel { max-width: 190px; transform: none !important; }
         }
         @media (max-width: 768px) {
             nav { display: none; }
-            .hero h1 { font-size: 3.2rem; }
-            .feature-text h2 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .feature-text h2 { font-size: 1.8rem; }
             .hero p { padding: 0 1rem; }
-            .hero-app-icon { width: 88px; height: 88px; border-radius: 22px; }
-            .email-cta { font-size: 1.5rem; }
+            .hero-app-icon { width: 60px; height: 60px; border-radius: 15px; }
+            .email-cta { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -504,12 +504,12 @@
             Premier Uni Central
         </div>
         <nav>
-    <a href="#features" class="link">Design</a>
-    <a href="support.html" class="link">Support</a>
-    <a href="privacy-policy.html" class="link">Privacy</a>
-    <a href="terms-and-conditions.html" class="link">Terms</a>
-    <a href="child-safety.html" class="link">Safety</a>
-</nav>
+            <a href="#features" class="link">Design</a>
+            <a href="support.html" class="link">Support</a>
+            <a href="privacy-policy.html" class="link">Privacy</a>
+            <a href="terms-and-conditions.html" class="link">Terms</a>
+            <a href="child-safety.html" class="link">Safety</a>
+        </nav>
     </header>
 
     <!-- Hero -->
@@ -619,7 +619,7 @@
             <a href="child-safety.html" class="footer-link">Child Safety</a>
             <a href="delete-account.html" class="footer-link">Data Deletion</a>
             <a href="support.html" class="footer-link">Support</a>
-<a href="mailto:iktiarnazib@gmail.com" class="footer-link">Contact</a>
+            <a href="mailto:iktiarnazib@gmail.com" class="footer-link">Contact</a>
         </div>
         <p class="copyright">&copy; 2026 Premier University Central. All rights reserved.</p>
     </footer>
